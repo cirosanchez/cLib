@@ -1,10 +1,14 @@
 plugins {
     kotlin("jvm") version "2.0.20"
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("maven-publish")
 }
 
 group = "me.cirosanchez"
 version = "1.0-SNAPSHOT"
+
+val sourceCompatibility = 17
+val targetCompatibility = 17
 
 repositories {
     mavenCentral()
