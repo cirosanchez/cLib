@@ -1,0 +1,4 @@
+name: cLib
+version: '1.0-SNAPSHOT'
+main: me.cirosanchez.cLib.CLib
+api-version: '1.18'
