@@ -45,3 +45,5 @@ tasks.processResources {
         expand(props)
     }
 }
+
+tasks.publishToMavenLocal
