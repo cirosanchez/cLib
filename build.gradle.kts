@@ -31,6 +31,17 @@ kotlin {
     jvmToolchain(targetJavaVersion)
 }
 
+val javaVersion = 21
+val javaVersionEnumMember = JavaVersion.valueOf("VERSION_$javaVersion")
+
+java {
+    sourceCompatibility = javaVersionEnumMember
+    targetCompatibility = javaVersionEnumMember
+
+    toolchain.languageVersion.set(JavaLanguageVersion.of(javaVersion))
+}
+
+
 tasks.build {
     dependsOn("shadowJar")
 }
