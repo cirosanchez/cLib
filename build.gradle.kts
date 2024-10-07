@@ -16,6 +16,7 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
+    maven("https://jitpack.io")
 }
 
 dependencies {
@@ -54,5 +55,4 @@ tasks.processResources {
         expand(props)
     }
 }
-
 
