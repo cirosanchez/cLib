@@ -1,8 +1,41 @@
 # cLib
 
+
 cLib is a personal library used to avoid having to copy and paste an insane amount of dependencies, files and other resources to the projects I do.
 
 The objective is to provide a variety of my own resources and other resources from other good libraries.
+
+## Adding as a Dependency
+Remember to replace {VERSION} with the version from the Jitpack repo displayed in the top of the readme file.
+
+### Maven
+```xml
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+```xml
+	<dependency>
+	    <groupId>com.github.cirosanchez</groupId>
+	    <artifactId>cLib</artifactId>
+	    <version>{VERSION}</version>
+	</dependency>
+```
+
+### Gradle 
+```kts
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation("com.github.cirosanchez:cLib:{VERSION}")
+}
+```
 
 ## List of Utilities Available
 1. Extension Functions
