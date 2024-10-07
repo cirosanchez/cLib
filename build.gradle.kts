@@ -43,6 +43,8 @@ java {
 }
 
 
+
+
 tasks.build {
     dependsOn("shadowJar")
 }

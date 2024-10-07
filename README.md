@@ -1,6 +1,11 @@
 # cLib
 
 
+<div style="display: flex; justify-content: center;">
+    <img style="padding-right:11px" src="https://jitpack.io/v/cirosanchez/cLib.svg" alt="JitPack">
+    <img alt="Discord" src="https://img.shields.io/discord/1209154009420795946">
+</div>
+
 cLib is a personal library used to avoid having to copy and paste an insane amount of dependencies, files and other resources to the projects I do.
 
 The objective is to provide a variety of my own resources and other resources from other good libraries.
