@@ -63,7 +63,7 @@ publishing {
             from(components["java"])
             groupId = "me.cirosanchez"
             artifactId = "clib"
-            version = "v0.1.4-alpha"
+            version = "v0.1.5"
         }
     }
 }
