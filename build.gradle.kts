@@ -56,3 +56,15 @@ tasks.processResources {
     }
 }
 
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            groupId = "me.cirosanchez"
+            artifactId = "clib"
+            version = "v0.1.4-alpha"
+        }
+    }
+}
+
