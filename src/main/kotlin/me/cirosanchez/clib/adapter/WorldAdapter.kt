@@ -1,4 +1,4 @@
-package me.cirosanchez.cLib.adapter
+package me.cirosanchez.clib.adapter
 
 import com.google.gson.*
 import org.bukkit.Bukkit

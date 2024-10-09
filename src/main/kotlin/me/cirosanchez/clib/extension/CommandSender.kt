@@ -1,6 +1,6 @@
-package me.cirosanchez.cLib.extension
+package me.cirosanchez.clib.extension
 
-import me.cirosanchez.cLib.CLib
+import me.cirosanchez.clib.CLib
 import org.bukkit.command.CommandSender
 
 fun CommandSender.send(message: String){

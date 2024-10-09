@@ -1,4 +1,4 @@
-package me.cirosanchez.cLib.configuration
+package me.cirosanchez.clib.configuration
 
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.Plugin

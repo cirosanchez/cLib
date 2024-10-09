@@ -1,8 +1,8 @@
-package me.cirosanchez.cLib
+package me.cirosanchez.clib
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import me.cirosanchez.cLib.adapter.WorldAdapter
+import me.cirosanchez.clib.adapter.WorldAdapter
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import org.bukkit.World
 import org.bukkit.plugin.java.JavaPlugin

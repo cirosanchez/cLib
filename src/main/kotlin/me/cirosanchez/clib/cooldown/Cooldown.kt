@@ -1,4 +1,4 @@
-package me.cirosanchez.cLib.cooldown
+package me.cirosanchez.clib.cooldown
 
 import java.time.Duration
 import java.time.Instant
