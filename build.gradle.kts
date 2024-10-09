@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm") version "2.0.20"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("maven-publish")
+    id("java")
 }
 
 group = "me.cirosanchez"
