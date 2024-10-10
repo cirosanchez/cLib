@@ -28,13 +28,13 @@ dependencies {
     compileOnly("com.google.code.gson:gson:2.11.0")
 }
 
-val targetJavaVersion = 17
+val targetJavaVersion = 8
 kotlin {
     jvmToolchain(targetJavaVersion)
 }
 
-val javaVersion = 21
-val javaVersionEnumMember = JavaVersion.valueOf("VERSION_$javaVersion")
+val javaVersion = 8
+val javaVersionEnumMember = JavaVersion.VERSION_1_8
 
 java {
     sourceCompatibility = javaVersionEnumMember
