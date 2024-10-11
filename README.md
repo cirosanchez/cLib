@@ -42,6 +42,13 @@ dependencies {
 }
 ```
 
+## Setup
+Please, before any use of the library, setup to avoid any errors.
+```kotlin
+// In the SpigotMC/PaperMC main class.
+cLib(this)
+```
+
 ## List of Utilities Available
 1. Extension Functions
 2. Cooldown
