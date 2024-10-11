@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.0.20"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.gradleup.shadow") version "8.3.3"
     id("maven-publish")
     id("java")
 }
@@ -22,10 +22,16 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("net.kyori:adventure-platform-bukkit:4.3.4")
     implementation("net.kyori:adventure-text-minimessage:4.17.0")
-    compileOnly("com.google.code.gson:gson:2.11.0")
+
+    val lamp_version = "3.3.0"
+
+    // Required for all platforms
+    implementation("com.github.Revxrsal.Lamp:common:${lamp_version}")
+
+    // The Bukkit API for Lamp
+    implementation("com.github.Revxrsal.Lamp:bukkit:${lamp_version}")
 }
 
 val targetJavaVersion = 8
@@ -62,11 +68,9 @@ tasks.processResources {
 
 publishing {
     publications {
-        create<MavenPublication>("mavenJava") {
+        create<MavenPublication>("maven") {
             from(components["java"])
-            groupId = "me.cirosanchez"
-            artifactId = "clib"
-            version = "v0.1.5"
+            artifact(tasks["shadowJar"])
         }
     }
 }
