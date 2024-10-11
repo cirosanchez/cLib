@@ -1,27 +1,36 @@
 package me.cirosanchez.clib
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import me.cirosanchez.clib.adapter.WorldAdapter
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
-import org.bukkit.World
 import org.bukkit.plugin.java.JavaPlugin
+import java.util.logging.Logger
 
-class CLib(javaPlugin: JavaPlugin,
-           var gson: Gson = GsonBuilder().setPrettyPrinting().serializeNulls().registerTypeAdapter(World::class.java,
-               WorldAdapter).create(),
-    ) {
+class CLib(javaPlugin: JavaPlugin) {
+
+
+    val audiences = BukkitAudiences.create(javaPlugin)
 
     init {
         plugin = javaPlugin
-        started = true
+        instance = this
     }
-    companion object {
-        var started = false
 
+
+    companion object {
         lateinit var plugin: JavaPlugin
-        val audiences = BukkitAudiences.create(plugin)
+        var instance: CLib? = null
+
+        fun get(): CLib {
+            if (instance == null) {
+                logger().severe("cLib hasn't been setup yet.")
+                throw IllegalStateException("cLib hasn't been setup yet.")
+            }
+
+            return instance!!
+        }
     }
 }
 
-fun clib(plugin: JavaPlugin): CLib = CLib(plugin)
+fun logger() = Logger.getLogger("cLib")
+
+fun cLib(plugin: JavaPlugin, init: CLib.() -> Unit = {}): CLib = CLib(plugin).apply(init)
+
