@@ -68,7 +68,9 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
-            artifact(tasks["shadowJar"])
+            artifact(tasks.named("shadowJar").get()) {
+                classifier = null
+            }
             groupId = "me.cirosanchez"
             artifactId = "clib"
             version = "v0.1.5"
