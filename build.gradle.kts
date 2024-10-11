@@ -64,12 +64,13 @@ tasks.processResources {
         expand(props)
     }
 }
-
-
 publishing {
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>("mavenJava") {
             from(components["java"])
+            groupId = "me.cirosanchez"
+            artifactId = "clib"
+            version = "v0.1.5"
             artifact(tasks["shadowJar"])
         }
     }
