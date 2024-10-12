@@ -16,7 +16,8 @@ class CLib(javaPlugin: JavaPlugin) {
     init {
         plugin = javaPlugin
         instance = this
-        println(messages)
+        println("CLIB MESSAGES BOOL: $messages")
+
         if (messages){
             messagesFile = FileConfiguration("messages.yml").loadConfig()
         }
