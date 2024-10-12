@@ -10,7 +10,7 @@ fun CommandSender.send(message: String){
     CLib.get().audiences.sender(this).sendMessage(message.colorize())
 }
 
-fun CommandSender.send(path: String, vararg placeholder: Placeholder){
+fun CommandSender.sendColorizedMessageFromMessagesFile(path: String, vararg placeholder: Placeholder){
     if(!CLib.get().messages) {
         logger().warning("You didn't setup messages in cLib main function! In order to use integrated messages.yml use it.")
         return
