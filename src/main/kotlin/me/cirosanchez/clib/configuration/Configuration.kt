@@ -1,10 +1,10 @@
 package me.cirosanchez.clib.configuration
 
+import me.cirosanchez.clib.CLib.Companion.plugin
 import org.bukkit.configuration.file.YamlConfiguration
-import org.bukkit.plugin.Plugin
 import java.io.File
 
-abstract class Configuration(private val plugin: Plugin) : YamlConfiguration() {
+abstract class Configuration() : YamlConfiguration() {
     private val file by lazy {  File(plugin.dataFolder, getFileName()) }
 
     companion object {

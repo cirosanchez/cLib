@@ -1,5 +1,6 @@
 package me.cirosanchez.clib
 
+import me.cirosanchez.clib.configuration.Configuration
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.logging.Logger
@@ -8,6 +9,7 @@ class CLib(javaPlugin: JavaPlugin) {
 
 
     val audiences = BukkitAudiences.create(javaPlugin)
+    lateinit var messagesFile: Configuration
 
     init {
         plugin = javaPlugin
@@ -27,6 +29,11 @@ class CLib(javaPlugin: JavaPlugin) {
 
             return instance!!
         }
+    }
+
+
+    fun messagesFile(configuration: Configuration){
+        this.messagesFile = configuration
     }
 }
 
