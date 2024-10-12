@@ -20,9 +20,8 @@ class CLib(javaPlugin: JavaPlugin) {
     }
 
     fun setupMessages() {
-        print("CLIB MSG $messages")
         if (messages) {
-            messagesFile = FileConfiguration("messages.yml")
+            messagesFile = FileConfiguration("messages.yml").loadConfig()
         }
     }
 
