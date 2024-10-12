@@ -17,10 +17,11 @@ class CLib(javaPlugin: JavaPlugin) {
     init {
         plugin = javaPlugin
         instance = this
+    }
 
-        println("CLIB MESSAGES BOOLEAN $messages")
-
-        if (messages){
+    fun setupMessages() {
+        print("CLIB MSG $messages")
+        if (messages) {
             messagesFile = FileConfiguration("messages.yml")
         }
     }
@@ -46,5 +47,9 @@ class CLib(javaPlugin: JavaPlugin) {
 
 fun logger() = Logger.getLogger("cLib")
 
-fun cLib(plugin: JavaPlugin, init: CLib.() -> Unit = {}): CLib = CLib(plugin).apply(init)
-
+fun cLib(plugin: JavaPlugin, init: CLib.() -> Unit = {}): CLib {
+    return CLib(plugin).apply {
+        init()
+        setupMessages() // Call the setup method after init block
+    }
+}
