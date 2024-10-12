@@ -11,15 +11,12 @@ fun String.colorize(): Component {
 }
 
 fun String.placeholders(vararg placeholders: Placeholder): String {
-    val stringBuilder = StringBuilder(this)
+    var stringo = this
 
-    for (placeholder in placeholders) {
-        val start = stringBuilder.indexOf(placeholder.target)
-        while (start != -1) {
-            stringBuilder.replace(start, start + placeholder.target.length, placeholder.replacement)
-        }
+    for (placeholder in placeholders){
+        stringo = stringo.replace(placeholder.target, placeholder.replacement)
     }
-    return stringBuilder.toString()
+    return stringo
 }
 
 fun String.sendToCommandSender(commandSender: CommandSender, vararg placeholders: Placeholder){
