@@ -18,7 +18,7 @@ class CLib(javaPlugin: JavaPlugin) {
         instance = this
 
         if (messages){
-            messagesFile = FileConfiguration("messages.yml")
+            messagesFile = FileConfiguration("messages.yml").loadConfig()
         }
     }
 
