@@ -15,7 +15,7 @@ class CLib(javaPlugin: JavaPlugin) {
         if (messages) {
             FileConfiguration("messages.yml").loadConfig()
         } else {
-            null
+            FileConfiguration("default-messages.yml").loadConfig()
         }
     }
 
