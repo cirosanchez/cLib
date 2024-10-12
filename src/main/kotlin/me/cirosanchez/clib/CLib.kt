@@ -1,6 +1,7 @@
 package me.cirosanchez.clib
 
 import me.cirosanchez.clib.configuration.Configuration
+import me.cirosanchez.clib.configuration.FileConfiguration
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.logging.Logger
@@ -9,11 +10,16 @@ class CLib(javaPlugin: JavaPlugin) {
 
 
     val audiences = BukkitAudiences.create(javaPlugin)
+    var messages: Boolean = false
     lateinit var messagesFile: Configuration
 
     init {
         plugin = javaPlugin
         instance = this
+
+        if (messages){
+            messagesFile = FileConfiguration("messages.yml")
+        }
     }
 
 
@@ -32,9 +38,7 @@ class CLib(javaPlugin: JavaPlugin) {
     }
 
 
-    fun messagesFile(configuration: Configuration){
-        this.messagesFile = configuration
-    }
+
 }
 
 fun logger() = Logger.getLogger("cLib")
