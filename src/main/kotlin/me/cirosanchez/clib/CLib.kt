@@ -10,17 +10,18 @@ class CLib(javaPlugin: JavaPlugin) {
 
 
     val audiences = BukkitAudiences.create(javaPlugin)
-    lateinit var messagesFile: Configuration
+    var messages: Boolean = false
+    val messagesFile: Configuration? by lazy {
+        if (messages) {
+            FileConfiguration("messages.yml").loadConfig()
+        } else {
+            null
+        }
+    }
 
     init {
         plugin = javaPlugin
         instance = this
-        var messages: Boolean = false
-
-
-        if (messages){
-            messagesFile = FileConfiguration("messages.yml").loadConfig()
-        }
     }
 
 
