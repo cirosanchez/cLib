@@ -18,6 +18,8 @@ class CLib(javaPlugin: JavaPlugin) {
         plugin = javaPlugin
         instance = this
 
+        println("CLIB MESSAGES BOOLEAN $messages")
+
         if (messages){
             messagesFile = FileConfiguration("messages.yml")
         }
