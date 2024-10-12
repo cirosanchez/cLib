@@ -1,5 +1,6 @@
 package me.cirosanchez.clib
 
+import jdk.nashorn.internal.runtime.regexp.joni.Config
 import me.cirosanchez.clib.configuration.Configuration
 import me.cirosanchez.clib.configuration.FileConfiguration
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
@@ -11,17 +12,15 @@ class CLib(javaPlugin: JavaPlugin) {
 
     val audiences = BukkitAudiences.create(javaPlugin)
     var messages: Boolean = false
-    val messagesFile: Configuration? by lazy {
-        if (messages) {
-            FileConfiguration("messages.yml").loadConfig()
-        } else {
-            FileConfiguration("default-messages.yml").loadConfig()
-        }
-    }
+    lateinit var messagesFile: Configuration
 
     init {
         plugin = javaPlugin
         instance = this
+
+        if (messages){
+            messagesFile = FileConfiguration("messages.yml")
+        }
     }
 
 

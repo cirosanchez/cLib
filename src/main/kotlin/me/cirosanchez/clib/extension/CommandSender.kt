@@ -11,8 +11,11 @@ fun CommandSender.send(message: String){
 }
 
 fun CommandSender.send(path: String, vararg placeholder: Placeholder){
-    val messages = CLib.get().messagesFile ?: throw Exception("You didn't enable messages while setting up cLib!")
+    if(!CLib.get().messages) {
+        logger().warning("You didn't setup messages in cLib main function! In order to use integrated messages.yml use it.")
+        return
+    }
 
-    val string = messages.getString(path) ?: "NULL"
+    val string = CLib.get().messagesFile.getString(path) ?: "NULL"
     CLib.get().audiences.sender(this).sendMessage(string.placeholders(*placeholder).colorize())
 }
