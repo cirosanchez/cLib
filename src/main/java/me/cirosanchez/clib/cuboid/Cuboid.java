@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.annotations.Expose;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -18,8 +19,11 @@ import org.bukkit.configuration.serialization.ConfigurationSerializable;
  * @author desht (Original code), KingFaris10 (Editor of code)
  */
 public class Cuboid implements Iterable<Block>, Cloneable, ConfigurationSerializable {
+    @Expose
     protected final String worldName;
+    @Expose
     public final int x1, y1, z1;
+    @Expose
     public final int x2, y2, z2;
 
     /**
