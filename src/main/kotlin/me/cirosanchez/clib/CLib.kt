@@ -52,3 +52,7 @@ fun cLib(plugin: JavaPlugin, init: CLib.() -> Unit = {}): CLib {
         setupMessages() // Call the setup method after init block
     }
 }
+
+fun getPlugin(): JavaPlugin {
+    return CLib.Companion.plugin
+}
