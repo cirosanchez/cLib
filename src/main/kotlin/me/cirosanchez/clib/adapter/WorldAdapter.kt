@@ -6,7 +6,7 @@ import org.bukkit.World
 import java.lang.reflect.Type
 import java.util.*
 
-object WorldAdapter : JsonDeserializer<World>, JsonSerializer<World> {
+object WorldAdapter : Adapter<World> {
     override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): World {
         if (json == null) throw JsonParseException("JSON can't be null.")
         if (json !is JsonObject) throw JsonParseException("JSON must be an object.")

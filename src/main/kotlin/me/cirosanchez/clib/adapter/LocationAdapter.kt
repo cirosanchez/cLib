@@ -6,7 +6,7 @@ import org.bukkit.Bukkit
 import org.bukkit.Location
 import java.lang.reflect.Type
 
-object LocationAdapter : JsonDeserializer<Location>, JsonSerializer<Location> {
+object LocationAdapter : Adapter<Location> {
     override fun deserialize(json: JsonElement?, type: Type?, context: JsonDeserializationContext?): Location {
         if (json == null) throw JsonParseException("JSON cannot be null.")
         if (json !is JsonObject) throw JsonParseException("Not a valid JSON Object.")

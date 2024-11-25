@@ -2,14 +2,11 @@ package me.cirosanchez.clib
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import me.cirosanchez.clib.adapter.DurationTypeAdapter
-import me.cirosanchez.clib.adapter.LocationAdapter
+import me.cirosanchez.clib.adapter.Adapter
 import me.cirosanchez.clib.configuration.Configuration
 import me.cirosanchez.clib.configuration.FileConfiguration
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
-import org.bukkit.Location
 import org.bukkit.plugin.java.JavaPlugin
-import java.time.Duration
 import java.util.logging.Logger
 import kotlin.jvm.java
 
@@ -20,7 +17,7 @@ class CLib(javaPlugin: JavaPlugin) {
     var messages: Boolean = false
     var mongoURI: String = ""
     var mongoDB: String = ""
-    lateinit var gson: Gson
+    var adapters = listOf(Adapter::class.java)
     lateinit var messagesFile: Configuration
 
     init {
@@ -66,13 +63,19 @@ fun getPlugin(): JavaPlugin {
     return CLib.Companion.plugin
 }
 
-val GSON = GsonBuilder()
-    .setPrettyPrinting()
-    .serializeNulls()
-    .registerTypeHierarchyAdapter(Duration::class.java, DurationTypeAdapter())
-    .registerTypeHierarchyAdapter(Location::class.java, LocationAdapter)
-    .create()
+
+fun getGson(): Gson {
+    val builder = GsonBuilder()
+        .setPrettyPrinting()
+        .serializeNulls()
+
+    CLib.get().adapters.forEach { adapter ->
+        builder.registerTypeHierarchyAdapter(adapter.componentType, adapter)
+    }
+
+    return builder.create()
+}
 
 fun Any.toJson(): String {
-    return GSON.toJson(this)
+    return getGson().toJson(this)
 }
