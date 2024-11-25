@@ -32,6 +32,10 @@ dependencies {
 
     // The Bukkit API for Lamp
     implementation("com.github.Revxrsal.Lamp:bukkit:${lamp_version}")
+
+    implementation("org.mongodb:bson:4.3.4")
+    implementation("org.mongodb:mongodb-driver-kotlin-sync:4.11.0")
+    implementation(kotlin("reflect"))
 }
 
 val targetJavaVersion = 8
