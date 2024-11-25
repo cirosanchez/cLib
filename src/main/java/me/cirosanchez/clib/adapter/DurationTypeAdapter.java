@@ -34,7 +34,7 @@ import java.time.Duration;
  *
  * @since 1.2.0
  */
-public class DurationTypeAdapter implements JsonSerializer<Duration>, JsonDeserializer<Duration> {
+public class DurationTypeAdapter implements Adapter<Duration> {
 
     private static final Gson gson = new Gson();
 
