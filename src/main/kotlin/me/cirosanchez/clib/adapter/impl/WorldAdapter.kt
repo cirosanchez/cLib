@@ -1,6 +1,7 @@
-package me.cirosanchez.clib.adapter
+package me.cirosanchez.clib.adapter.impl
 
 import com.google.gson.*
+import me.cirosanchez.clib.adapter.Adapter
 import org.bukkit.Bukkit
 import org.bukkit.World
 import java.lang.reflect.Type

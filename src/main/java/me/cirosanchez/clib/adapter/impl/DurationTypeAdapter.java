@@ -1,4 +1,4 @@
-package me.cirosanchez.clib.adapter;
+package me.cirosanchez.clib.adapter.impl;
 
 /*
  * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com) All Rights Reserved.
@@ -20,11 +20,11 @@ package me.cirosanchez.clib.adapter;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+
+import me.cirosanchez.clib.adapter.Adapter;
 
 import java.lang.reflect.Type;
 import java.time.Duration;
@@ -54,5 +54,20 @@ public class DurationTypeAdapter implements Adapter<Duration> {
         return Duration.ofSeconds(data.seconds(), data.nanos());
     }
 
-    private record DurationData(long seconds, int nanos) { }
+    private class DurationData {
+
+        public DurationData(long seconds, int nanos){
+            this.seconds = seconds;
+            this.nanos = nanos;
+        }
+        private long seconds;
+        private int nanos;
+
+        public long seconds() {
+            return this.seconds;
+        }
+        public int nanos(){
+            return this.nanos;
+        }
+    }
 }

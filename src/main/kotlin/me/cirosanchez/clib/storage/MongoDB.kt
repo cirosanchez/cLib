@@ -13,7 +13,7 @@ import com.mongodb.kotlin.client.MongoDatabase
 import com.mongodb.kotlin.client.MongoIterable
 
 import me.cirosanchez.clib.CLib
-import me.cirosanchez.clib.GSON
+import me.cirosanchez.clib.getGson
 import me.cirosanchez.clib.extension.Case
 import me.cirosanchez.clib.extension.formatCase
 import me.cirosanchez.clib.extension.pluralize
@@ -107,7 +107,7 @@ class TwilightMongoCollection<T : MongoSerializable>(
     fun findSync(filter: Bson? = null): MongoIterable<T> =
         (if (filter == null) documents.find() else documents.find(filter)).map {
             @Suppress("unchecked_cast")
-            GSON.fromJson(it.toJson(), clazz.java) as T
+            getGson().fromJson(it.toJson(), clazz.java) as T
         }
 
     fun find(filter: Bson? = null): CompletableFuture<MongoIterable<T>> =
