@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder
 import me.cirosanchez.clib.adapter.Adapter
 import me.cirosanchez.clib.configuration.Configuration
 import me.cirosanchez.clib.configuration.FileConfiguration
+import me.cirosanchez.clib.storage.MongoDB
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.logging.Logger
@@ -29,6 +30,10 @@ class CLib(javaPlugin: JavaPlugin) {
         if (messages) {
             messagesFile = FileConfiguration("messages.yml").loadConfig()
         }
+    }
+
+    fun setupMongo(){
+        MongoDB.mongo(MongoDB.Settings())
     }
 
 
