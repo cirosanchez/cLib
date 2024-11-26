@@ -18,7 +18,7 @@ class CLib(javaPlugin: JavaPlugin) {
     var messages: Boolean = false
     var mongoURI: String = ""
     var mongoDB: String = ""
-    var adapters = listOf(Adapter::class.java)
+    var adapters: MutableList<Adapter<Any>> = mutableListOf()
     lateinit var messagesFile: Configuration
 
     init {
@@ -76,7 +76,7 @@ fun getGson(): Gson {
         .serializeNulls()
 
     CLib.get().adapters.forEach { adapter ->
-        builder.registerTypeHierarchyAdapter(adapter.componentType, adapter)
+        builder.registerTypeHierarchyAdapter(adapter.getClass(), adapter)
     }
 
     return builder.create()
