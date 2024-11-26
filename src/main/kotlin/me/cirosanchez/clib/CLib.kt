@@ -61,6 +61,7 @@ fun cLib(plugin: JavaPlugin, init: CLib.() -> Unit = {}): CLib {
     return CLib(plugin).apply {
         init()
         setupMessages() // Call the setup method after init block
+        setupMongo()
     }
 }
 
