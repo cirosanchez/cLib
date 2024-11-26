@@ -9,7 +9,6 @@ import me.cirosanchez.clib.storage.MongoDB
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.logging.Logger
-import kotlin.jvm.java
 
 class CLib(javaPlugin: JavaPlugin) {
 
@@ -76,7 +75,7 @@ fun getGson(): Gson {
         .serializeNulls()
 
     CLib.get().adapters.forEach { adapter ->
-        builder.registerTypeHierarchyAdapter(adapter.getClass(), adapter)
+        builder.registerTypeHierarchyAdapter(adapter.getTypeClass(), adapter)
     }
 
     return builder.create()

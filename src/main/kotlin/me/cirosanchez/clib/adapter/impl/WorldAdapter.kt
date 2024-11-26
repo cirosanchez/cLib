@@ -6,6 +6,7 @@ import org.bukkit.Bukkit
 import org.bukkit.World
 import java.lang.reflect.Type
 import java.util.*
+import kotlin.reflect.KClass
 
 object WorldAdapter : Adapter<World> {
     override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): World {
@@ -28,5 +29,10 @@ object WorldAdapter : Adapter<World> {
 
         return obj
     }
+
+    override fun getTypeClass(): Class<World> {
+        return World::class.java
+    }
+
 
 }

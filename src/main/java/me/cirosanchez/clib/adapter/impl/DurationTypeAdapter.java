@@ -24,7 +24,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 
+import kotlin.reflect.KClass;
 import me.cirosanchez.clib.adapter.Adapter;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Type;
 import java.time.Duration;
@@ -53,6 +55,12 @@ public class DurationTypeAdapter implements Adapter<Duration> {
         DurationData data = gson.fromJson(json, DurationData.class);
         return Duration.ofSeconds(data.seconds(), data.nanos());
     }
+
+    @Override
+    public @NotNull Class<@NotNull Duration> getTypeClass() {
+        return Duration.class;
+    }
+
 
     private class DurationData {
 

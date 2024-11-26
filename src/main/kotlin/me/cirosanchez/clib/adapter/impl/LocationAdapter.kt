@@ -6,6 +6,7 @@ import me.cirosanchez.clib.adapter.Adapter
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import java.lang.reflect.Type
+import kotlin.reflect.KClass
 
 object LocationAdapter : Adapter<Location> {
     override fun deserialize(json: JsonElement?, type: Type?, context: JsonDeserializationContext?): Location {
@@ -45,4 +46,9 @@ object LocationAdapter : Adapter<Location> {
             addProperty("pitch", location.pitch)
         }
     }
+
+    override fun getTypeClass(): Class<Location> {
+        return Location::class.java
+    }
+
 }
