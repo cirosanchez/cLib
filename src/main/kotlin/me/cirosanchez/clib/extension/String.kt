@@ -4,6 +4,7 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import me.cirosanchez.clib.placeholder.Placeholder
 import org.bukkit.command.CommandSender
+import org.bukkit.ChatColor
 
 
 fun String.colorize(): Component {
