@@ -3,6 +3,7 @@ package me.cirosanchez.clib.extension
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import me.cirosanchez.clib.placeholder.Placeholder
+import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.command.CommandSender
 import org.bukkit.ChatColor
 

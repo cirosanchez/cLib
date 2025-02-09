@@ -3,7 +3,9 @@ package me.cirosanchez.clib.extension
 import me.cirosanchez.clib.CLib
 import me.cirosanchez.clib.logger
 import me.cirosanchez.clib.placeholder.Placeholder
+import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.command.CommandSender
+import org.bukkit.entity.Player
 
 fun CommandSender.send(message: String) {
     CLib.get().audiences.sender(this).sendMessage(message.colorize())
@@ -15,7 +17,11 @@ fun CommandSender.sendColorizedMessageFromMessagesFile(path: String, vararg plac
         return
     }
 
-    val string = CLib.get().messagesFile.getString(path) ?: "NULL"
+    var string = CLib.get().messagesFile.getString(path) ?: "NULL"
+
+    if (this is Player){
+        string = PlaceholderAPI.setPlaceholders(this, string)
+    }
     CLib.get().audiences.sender(this).sendMessage(string.placeholders(*placeholder).colorize())
 }
 

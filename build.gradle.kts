@@ -18,6 +18,7 @@ repositories {
         name = "sonatype"
     }
     maven("https://jitpack.io")
+    maven("https://repo.extendedclip.com/releases/")
 }
 
 dependencies {
@@ -35,16 +36,17 @@ dependencies {
 
     implementation("org.mongodb:bson:4.3.4")
     implementation("org.mongodb:mongodb-driver-kotlin-sync:4.11.0")
+    compileOnly("me.clip:placeholderapi:2.11.6")
     implementation(kotlin("reflect"))
 }
 
-val targetJavaVersion = 8
+val targetJavaVersion = 17
 kotlin {
     jvmToolchain(targetJavaVersion)
 }
 
-val javaVersion = 8
-val javaVersionEnumMember = JavaVersion.VERSION_1_8
+val javaVersion = 17
+val javaVersionEnumMember = JavaVersion.VERSION_17
 
 java {
     sourceCompatibility = javaVersionEnumMember
@@ -81,4 +83,6 @@ publishing {
         }
     }
 }
+
+
 
