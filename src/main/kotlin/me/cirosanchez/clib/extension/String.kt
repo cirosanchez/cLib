@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender
 
 
 fun String.colorize(): Component {
+    val msg = ChatColor.translateAlternateColorCodes('&', this)
     return MiniMessage.miniMessage().deserialize(this)
 }
 
