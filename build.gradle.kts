@@ -28,11 +28,12 @@ dependencies {
 
     val lamp_version = "3.3.0"
 
-    // Required for all platforms
-    implementation("com.github.Revxrsal.Lamp:common:${lamp_version}")
+    // https://mvnrepository.com/artifact/io.github.revxrsal/lamp.common
+    implementation("io.github.revxrsal:lamp.common:4.0.0-rc.8")
+    // https://mvnrepository.com/artifact/io.github.revxrsal/lamp.paper
+    implementation("io.github.revxrsal:lamp.paper:4.0.0-beta.19")
 
-    // The Bukkit API for Lamp
-    implementation("com.github.Revxrsal.Lamp:bukkit:${lamp_version}")
+
 
     implementation("org.mongodb:bson:4.3.4")
     implementation("org.mongodb:mongodb-driver-kotlin-sync:4.11.0")
