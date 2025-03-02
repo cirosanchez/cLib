@@ -29,9 +29,9 @@ dependencies {
     val lamp_version = "3.3.0"
 
     // https://mvnrepository.com/artifact/io.github.revxrsal/lamp.common
-    implementation("io.github.revxrsal:lamp.common:4.0.0-rc.8")
+    implementation("io.github.revxrsal.Lamp:common:3.3.4")
     // https://mvnrepository.com/artifact/io.github.revxrsal/lamp.paper
-    implementation("io.github.revxrsal:lamp.paper:4.0.0-beta.19")
+    implementation("com.github.Revxrsal.Lamp:bukkit:3.3.4")
 
 
 
